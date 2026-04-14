@@ -3,491 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SubbuKnits — Handmade Crochet</title>
+  <title>SubbuKnits — Her Legacy in Stitches</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream:   #FAF6F0;
-      --warm:    #F2EAE0;
-      --sand:    #E0D4C3;
-      --clay:    #C9A882;
-      --terra:   #9E6B45;
-      --bark:    #5C3D2A;
-      --ink:     #2A1F16;
-      --blush:   #E8C4B0;
-      --sage:    #9DB09A;
-      --mist:    #D4DDD2;
-      --white:   #FFFFFF;
-      --radius:  12px;
+      --navy:      #2F5080;
+      --navy-dark: #1E3557;
+      --navy-deep: #12243A;
+      --orange:    #C97B2A;
+      --orange-lt: #E8A04A;
+      --cream:     #FAF7F2;
+      --warm:      #F3EDE3;
+      --sand:      #E2D6C5;
+      --text:      #1A1A2E;
+      --muted:     #5A6E85;
+      --white:     #FFFFFF;
+      --radius:    12px;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'DM Sans', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,246,240,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--sand);
-      padding: 0 5vw;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--bark);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--sand); padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 52px; width: 52px; object-fit: contain; border-radius: 50%; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo-text .brand { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--navy); }
+    .nav-logo-text .brand span { color: var(--orange); }
+    .nav-logo-text .tagline { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--terra);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--bark); }
+    .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; color: var(--navy); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--orange); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 80vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      overflow: hidden;
-    }
-    .hero-text {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 6rem 5vw 6rem 8vw;
-      position: relative;
-    }
-    .hero-text::before {
-      content: '';
-      position: absolute; top: 40px; right: -30px;
-      width: 180px; height: 180px;
-      border: 2px solid var(--sand);
-      border-radius: 50%;
-      opacity: 0.5;
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--clay);
-      margin-bottom: 1.2rem;
-      font-weight: 500;
-    }
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 5vw, 5rem);
-      font-weight: 500;
-      line-height: 1.08;
-      color: var(--bark);
-      margin-bottom: 1.5rem;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--terra);
-    }
-    .hero-sub {
-      font-size: 1rem;
-      color: var(--terra);
-      max-width: 380px;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-    .btn-primary {
-      display: inline-block;
-      padding: 0.9rem 2.4rem;
-      background: var(--bark);
-      color: var(--cream);
-      border-radius: 40px;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: background 0.2s, transform 0.15s;
-      align-self: flex-start;
-    }
-    .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
-    .hero-image {
-      background: var(--warm);
-      position: relative;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-image-inner {
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    /* decorative yarn texture behind the image placeholder */
-    .hero-img-placeholder {
-      width: 100%; height: 100%; min-height: 500px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 1rem;
-      background:
-        repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 18px,
-          rgba(158,107,69,0.07) 18px,
-          rgba(158,107,69,0.07) 20px
-        ),
-        var(--warm);
-    }
-    .hero-img-placeholder svg { opacity: 0.5; }
-    .hero-img-placeholder p { font-size: 0.8rem; color: var(--clay); font-style: italic; }
+    /* HERO */
+    .hero { min-height: 82vh; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+    .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 6rem 4vw 6rem 8vw; position: relative; }
+    .hero-text::after { content: ''; position: absolute; bottom: 60px; right: 20px; width: 200px; height: 200px; border: 1.5px solid var(--sand); border-radius: 50%; opacity: 0.6; pointer-events: none; }
+    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem; font-weight: 500; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 4.5vw, 4.8rem); font-weight: 500; line-height: 1.08; color: var(--navy-dark); margin-bottom: 1.5rem; }
+    .hero-title em { font-style: italic; color: var(--orange); }
+    .hero-sub { font-size: 1rem; color: var(--muted); max-width: 380px; line-height: 1.85; margin-bottom: 2.5rem; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; padding: 0.9rem 2.2rem; background: var(--navy); color: var(--white); border-radius: 40px; text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--navy-dark); transform: translateY(-1px); }
+    .btn-secondary { display: inline-block; padding: 0.9rem 2.2rem; background: transparent; color: var(--navy); border: 1.5px solid var(--navy); border-radius: 40px; text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s, color 0.2s, transform 0.15s; }
+    .btn-secondary:hover { background: var(--navy); color: var(--white); transform: translateY(-1px); }
+    .hero-visual { background: linear-gradient(135deg, #EAF0F8 0%, #F3EDE3 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .hero-visual::before { content: ''; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: rgba(47,80,128,0.07); top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .hero-logo-big { width: min(320px, 72%); position: relative; z-index: 1; filter: drop-shadow(0 8px 32px rgba(47,80,128,0.18)); animation: float 4s ease-in-out infinite; }
+    @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-10px); } }
 
-    /* ── SECTION TITLES ── */
-    .section-header {
-      text-align: center;
-      padding: 5rem 5vw 3rem;
-    }
-    .section-header .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--clay);
-      font-weight: 500;
-      display: block;
-      margin-bottom: 0.75rem;
-    }
-    .section-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 500;
-      color: var(--bark);
-      line-height: 1.15;
-    }
-    .section-header h2 em { font-style: italic; color: var(--terra); }
-    .divider {
-      width: 48px; height: 2px;
-      background: var(--clay);
-      border-radius: 2px;
-      margin: 1.2rem auto 0;
-      opacity: 0.6;
-    }
+    /* SECTION TITLES */
+    .section-header { text-align: center; padding: 5rem 5vw 3rem; }
+    .section-header .eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); font-weight: 500; display: block; margin-bottom: 0.75rem; }
+    .section-header h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 500; color: var(--navy-dark); line-height: 1.15; }
+    .section-header h2 em { font-style: italic; color: var(--orange); }
+    .divider { width: 48px; height: 2.5px; background: var(--orange); border-radius: 2px; margin: 1.2rem auto 0; opacity: 0.7; }
 
-    /* ── PRODUCT GRID ── */
+    /* PRODUCT GRID */
     #shop { background: var(--cream); padding-bottom: 5rem; }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 0 5vw;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--sand);
-      transition: transform 0.25s, box-shadow 0.25s;
-      position: relative;
-    }
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(92,61,42,0.12);
-    }
-    .product-img-wrap {
-      aspect-ratio: 1/1;
-      overflow: hidden;
-      background: var(--warm);
-      position: relative;
-    }
-    .product-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; padding: 0 5vw; max-width: 1200px; margin: 0 auto; }
+    .product-card { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--sand); transition: transform 0.25s, box-shadow 0.25s; position: relative; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 14px 44px rgba(47,80,128,0.12); }
+    .product-img-wrap { aspect-ratio: 1/1; overflow: hidden; background: var(--warm); position: relative; }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
     .product-card:hover .product-img-wrap img { transform: scale(1.04); }
-    .product-img-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      background:
-        repeating-linear-gradient(
-          60deg,
-          transparent,
-          transparent 14px,
-          rgba(158,107,69,0.06) 14px,
-          rgba(158,107,69,0.06) 16px
-        ),
-        var(--warm);
-    }
-    .product-badge {
-      position: absolute; top: 12px; left: 12px;
-      background: var(--bark);
-      color: var(--cream);
-      font-size: 0.68rem;
-      padding: 4px 10px;
-      border-radius: 20px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-    .product-info {
-      padding: 1.1rem 1.25rem 1.4rem;
-    }
-    .product-name {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--bark);
-      margin-bottom: 0.35rem;
-      line-height: 1.2;
-    }
-    .product-desc {
-      font-size: 0.82rem;
-      color: var(--terra);
-      font-weight: 300;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    .product-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid var(--warm);
-      padding-top: 1rem;
-    }
-    .product-price {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--bark);
-      font-family: var(--font-display);
-    }
-    .btn-enquire {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--terra);
-      text-decoration: none;
-      border: 1px solid var(--clay);
-      padding: 0.45rem 1rem;
-      border-radius: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn-enquire:hover { background: var(--bark); color: var(--cream); border-color: var(--bark); }
+    .product-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(60deg, transparent, transparent 14px, rgba(47,80,128,0.05) 14px, rgba(47,80,128,0.05) 16px), var(--warm); }
+    .product-badge { position: absolute; top: 12px; left: 12px; background: var(--navy); color: var(--white); font-size: 0.68rem; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+    .product-badge.orange { background: var(--orange); }
+    .product-info { padding: 1.1rem 1.25rem 1.4rem; }
+    .product-name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; color: var(--navy-dark); margin-bottom: 0.35rem; line-height: 1.2; }
+    .product-desc { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 1rem; }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--warm); padding-top: 1rem; }
+    .product-price { font-size: 1.25rem; font-weight: 600; color: var(--orange); font-family: var(--font-display); }
+    .btn-enquire { font-size: 0.78rem; font-weight: 500; color: var(--navy); text-decoration: none; border: 1.5px solid var(--navy); padding: 0.45rem 1rem; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
+    .btn-enquire:hover { background: var(--navy); color: var(--white); }
 
-    /* ── ABOUT STRIP ── */
-    .about-strip {
-      background: var(--bark);
-      color: var(--cream);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 360px;
-      overflow: hidden;
-    }
-    .about-text {
-      padding: 5rem 5vw 5rem 8vw;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .about-text .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--clay);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-    .about-text h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 500;
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-      color: var(--cream);
-    }
-    .about-text h2 em { font-style: italic; color: var(--blush); }
-    .about-text p {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: var(--sand);
-      font-weight: 300;
-      max-width: 420px;
-    }
-    .about-pattern {
-      background:
-        radial-gradient(circle at 30% 50%, rgba(232,196,176,0.15) 0%, transparent 60%),
-        repeating-conic-gradient(
-          rgba(232,196,176,0.08) 0deg 10deg,
-          transparent 10deg 20deg
-        ),
-        var(--terra);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .about-icon { font-size: 6rem; opacity: 0.35; }
+    /* ABOUT */
+    .about-strip { background: var(--navy-deep); color: var(--white); display: grid; grid-template-columns: 1fr 1fr; min-height: 380px; overflow: hidden; }
+    .about-text { padding: 5rem 5vw 5rem 8vw; display: flex; flex-direction: column; justify-content: center; }
+    .about-text .eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange-lt); font-weight: 500; margin-bottom: 1rem; }
+    .about-text h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 500; line-height: 1.15; margin-bottom: 1.2rem; }
+    .about-text h2 em { font-style: italic; color: var(--orange-lt); }
+    .about-text p { font-size: 0.95rem; line-height: 1.9; color: #A8BDD4; font-weight: 300; max-width: 420px; }
+    .about-visual { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 40% 50%, rgba(201,123,42,0.25) 0%, transparent 65%), var(--navy-dark); padding: 3rem; }
+    .about-logo { width: min(260px, 80%); opacity: 0.92; filter: drop-shadow(0 4px 24px rgba(0,0,0,0.3)); }
 
-    /* ── PERKS ── */
-    .perks {
-      padding: 5rem 5vw;
-      background: var(--warm);
-    }
-    .perks-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .perk {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid var(--sand);
-    }
+    /* PERKS */
+    .perks { padding: 5rem 5vw; background: var(--warm); }
+    .perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 960px; margin: 0 auto; }
+    .perk { text-align: center; padding: 2rem 1.5rem; background: var(--white); border-radius: var(--radius); border: 1px solid var(--sand); transition: box-shadow 0.2s; }
+    .perk:hover { box-shadow: 0 6px 24px rgba(47,80,128,0.08); }
     .perk-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
-    .perk h3 {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--bark);
-      margin-bottom: 0.4rem;
-    }
-    .perk p { font-size: 0.83rem; color: var(--terra); font-weight: 300; line-height: 1.6; }
+    .perk h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy-dark); margin-bottom: 0.4rem; }
+    .perk p { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
 
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--cream);
-      padding: 5rem 5vw;
-    }
-    .contact-wrap {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--white);
-      border: 1px solid var(--sand);
-      border-radius: 18px;
-      padding: 3rem 3.5rem;
-    }
+    /* CONTACT */
+    #contact { background: var(--cream); padding: 5rem 5vw; }
+    .contact-wrap { max-width: 620px; margin: 0 auto; background: var(--white); border: 1px solid var(--sand); border-radius: 18px; padding: 3rem 3.5rem; }
     .contact-wrap .section-header { padding: 0 0 2.5rem; }
     .contact-wrap .section-header h2 { font-size: 2rem; }
     .form-group { margin-bottom: 1.4rem; }
-    .form-group label {
-      display: block;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 500;
-      color: var(--terra);
-      margin-bottom: 0.5rem;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid var(--sand);
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      color: var(--ink);
-      background: var(--cream);
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--clay);
-      background: var(--white);
-    }
+    .form-group label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--sand); border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem; color: var(--text); background: var(--cream); outline: none; transition: border-color 0.2s, background 0.2s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--navy); background: var(--white); }
     .form-group textarea { resize: vertical; min-height: 130px; }
-    .form-group select option { background: var(--white); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .btn-submit {
-      width: 100%;
-      padding: 1rem;
-      background: var(--bark);
-      color: var(--cream);
-      border: none;
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      margin-top: 0.5rem;
-    }
-    .btn-submit:hover { background: var(--ink); transform: translateY(-1px); }
-    .contact-note {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--clay);
-      margin-top: 1.2rem;
-      font-style: italic;
-    }
-    /* form success message */
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-    }
-    .form-success h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--bark);
-      margin-bottom: 0.5rem;
-    }
-    .form-success p { font-size: 0.9rem; color: var(--terra); }
+    .btn-submit { width: 100%; padding: 1rem; background: var(--navy); color: var(--white); border: none; border-radius: 8px; font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
+    .btn-submit:hover { background: var(--navy-dark); transform: translateY(-1px); }
+    .contact-note { text-align: center; font-size: 0.8rem; color: #999; margin-top: 1.2rem; font-style: italic; }
+    .contact-note a { color: var(--navy); text-decoration: none; }
+    .contact-note a:hover { color: var(--orange); }
+    .form-success { display: none; text-align: center; padding: 2rem; }
+    .form-success h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--navy-dark); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.9rem; color: var(--muted); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      color: var(--sand);
-      padding: 2.5rem 5vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.82rem;
-    }
-    footer .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--cream);
-      font-weight: 500;
-    }
-    footer a { color: var(--clay); text-decoration: none; }
-    footer a:hover { color: var(--blush); }
+    /* FOOTER */
+    footer { background: var(--navy-deep); color: #7A99B8; padding: 2.5rem 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand img { height: 40px; width: 40px; object-fit: contain; border-radius: 50%; opacity: 0.9; }
+    .footer-brand-text { line-height: 1.2; }
+    .footer-brand-text strong { display: block; font-family: var(--font-display); font-size: 1.05rem; color: var(--white); font-weight: 500; }
+    .footer-brand-text span { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    footer a { color: var(--orange-lt); text-decoration: none; }
+    footer a:hover { color: var(--white); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-image { min-height: 260px; }
+      .hero-visual { min-height: 280px; }
       .hero-text { padding: 4rem 6vw; }
-      .hero-text::before { display: none; }
+      .hero-text::after { display: none; }
       .about-strip { grid-template-columns: 1fr; }
-      .about-pattern { min-height: 200px; }
+      .about-visual { min-height: 200px; padding: 2rem; }
       .about-text { padding: 3.5rem 6vw; }
       .contact-wrap { padding: 2rem 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
-      nav .nav-links { display: none; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -495,7 +152,13 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">SubbuKnits</a>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="SubbuKnits logo" />
+    <div class="nav-logo-text">
+      <span class="brand">Subbu<span>Knits</span></span>
+      <span class="tagline">Her Legacy in Stitches</span>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#shop">Shop</a></li>
     <li><a href="#about">About</a></li>
@@ -506,24 +169,16 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <p class="hero-eyebrow">Handcrafted with care · Made to order</p>
-    <h1 class="hero-title">Her legacy<br>in <em>stitches</em></h1>
+    <p class="hero-eyebrow">Handcrafted with love · Made to order</p>
+    <h1 class="hero-title">Every stitch<br>tells a <em>story</em></h1>
     <p class="hero-sub">Lovingly crocheted pieces — from cosy blankets to playful amigurumi — each one made by hand, just for you.</p>
-    <a href="#shop" class="btn-primary">Browse the collection</a>
-  </div>
-  <div class="hero-image">
-    <!-- Replace with your actual hero image:
-         <img src="images/hero.jpg" alt="Crochet collection" class="hero-image-inner" />
-    -->
-    <div class="hero-img-placeholder">
-      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="36" cy="36" r="34" stroke="#9E6B45" stroke-width="2"/>
-        <path d="M20 36 Q28 24 36 36 Q44 48 52 36" stroke="#9E6B45" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M20 42 Q28 30 36 42 Q44 54 52 42" stroke="#C9A882" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M20 30 Q28 18 36 30 Q44 42 52 30" stroke="#C9A882" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      </svg>
-      <p>Add your hero photo here</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn-primary">Browse the collection</a>
+      <a href="#contact" class="btn-secondary">Custom order</a>
     </div>
+  </div>
+  <div class="hero-visual">
+    <img src="logo.png" alt="SubbuKnits — Her Legacy in Stitches" class="hero-logo-big" />
   </div>
 </section>
 
@@ -537,18 +192,16 @@
 
   <div class="product-grid">
 
-    <!-- ── PRODUCT CARD TEMPLATE ──
-         Duplicate this block for each item.
-         1. Replace img src with your GitHub-hosted photo URL
-         2. Update name, description, and price
-         3. Remove the placeholder div if using a real img
-    -->
+    <!-- PRODUCT CARD — duplicate and edit for each item.
+         To add a real photo: replace the <div class="product-img-placeholder">…</div>
+         with: <img src="images/yourfile.jpg" alt="Item Name" />
+         Host images at: https://YOUR-USERNAME.github.io/YOUR-REPO/images/yourfile.jpg -->
 
     <div class="product-card">
       <div class="product-img-wrap">
-        <!-- <img src="https://YOUR-USERNAME.github.io/YOUR-REPO/images/item1.jpg" alt="Chunky Throw Blanket" /> -->
+        <!-- <img src="images/blanket.jpg" alt="Chunky Throw Blanket" /> -->
         <div class="product-img-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="14" width="32" height="24" rx="4" stroke="#C9A882" stroke-width="1.5"/><path d="M8 20h32M8 26h32" stroke="#C9A882" stroke-width="1.2"/></svg>
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="6" y="12" width="40" height="28" rx="4" stroke="#2F5080" stroke-width="1.5"/><path d="M6 20h40M6 28h40" stroke="#2F5080" stroke-width="1.2" stroke-dasharray="4 3"/></svg>
         </div>
         <span class="product-badge">Bestseller</span>
       </div>
@@ -564,11 +217,11 @@
 
     <div class="product-card">
       <div class="product-img-wrap">
-        <!-- <img src="https://YOUR-USERNAME.github.io/YOUR-REPO/images/item2.jpg" alt="Amigurumi Bear" /> -->
+        <!-- <img src="images/bear.jpg" alt="Amigurumi Bear" /> -->
         <div class="product-img-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="26" r="12" stroke="#C9A882" stroke-width="1.5"/><circle cx="17" cy="15" r="5" stroke="#C9A882" stroke-width="1.5"/><circle cx="31" cy="15" r="5" stroke="#C9A882" stroke-width="1.5"/><circle cx="22" cy="27" r="1.5" fill="#C9A882"/><circle cx="26" cy="27" r="1.5" fill="#C9A882"/><path d="M21 31 Q24 33 27 31" stroke="#C9A882" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="30" r="12" stroke="#2F5080" stroke-width="1.5"/><circle cx="18" cy="17" r="5.5" stroke="#2F5080" stroke-width="1.5"/><circle cx="34" cy="17" r="5.5" stroke="#2F5080" stroke-width="1.5"/><circle cx="23" cy="31" r="1.5" fill="#C97B2A"/><circle cx="29" cy="31" r="1.5" fill="#C97B2A"/><path d="M23 35 Q26 37 29 35" stroke="#C97B2A" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
         </div>
-        <span class="product-badge">New</span>
+        <span class="product-badge orange">New</span>
       </div>
       <div class="product-info">
         <h3 class="product-name">Amigurumi Bear</h3>
@@ -582,9 +235,9 @@
 
     <div class="product-card">
       <div class="product-img-wrap">
-        <!-- <img src="https://YOUR-USERNAME.github.io/YOUR-REPO/images/item3.jpg" alt="Market Tote Bag" /> -->
+        <!-- <img src="images/tote.jpg" alt="Market Tote Bag" /> -->
         <div class="product-img-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M14 18h20l-3 22H17L14 18z" stroke="#C9A882" stroke-width="1.5" stroke-linejoin="round"/><path d="M19 18c0-4 10-4 10 0" stroke="#C9A882" stroke-width="1.5" fill="none"/></svg>
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M14 20h24l-4 24H18L14 20z" stroke="#2F5080" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 20c0-5 12-5 12 0" stroke="#2F5080" stroke-width="1.5" fill="none"/></svg>
         </div>
       </div>
       <div class="product-info">
@@ -599,9 +252,9 @@
 
     <div class="product-card">
       <div class="product-img-wrap">
-        <!-- <img src="https://YOUR-USERNAME.github.io/YOUR-REPO/images/item4.jpg" alt="Boho Wall Hanging" /> -->
+        <!-- <img src="images/wall-hanging.jpg" alt="Boho Wall Hanging" /> -->
         <div class="product-img-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="12" y="8" width="24" height="3" rx="1.5" stroke="#C9A882" stroke-width="1.2"/><line x1="16" y1="11" x2="14" y2="40" stroke="#C9A882" stroke-width="1.2"/><line x1="24" y1="11" x2="24" y2="38" stroke="#C9A882" stroke-width="1.2"/><line x1="32" y1="11" x2="34" y2="40" stroke="#C9A882" stroke-width="1.2"/><path d="M14 24 Q24 20 34 24" stroke="#C9A882" stroke-width="1" fill="none"/><path d="M14 30 Q24 26 34 30" stroke="#C9A882" stroke-width="1" fill="none"/></svg>
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="12" y="8" width="28" height="3.5" rx="1.75" stroke="#2F5080" stroke-width="1.2"/><line x1="17" y1="11.5" x2="15" y2="44" stroke="#2F5080" stroke-width="1.2"/><line x1="26" y1="11.5" x2="26" y2="42" stroke="#2F5080" stroke-width="1.2"/><line x1="35" y1="11.5" x2="37" y2="44" stroke="#2F5080" stroke-width="1.2"/><path d="M15 26 Q26 22 37 26" stroke="#C97B2A" stroke-width="1" fill="none"/><path d="M15 33 Q26 29 37 33" stroke="#C97B2A" stroke-width="1" fill="none"/></svg>
         </div>
       </div>
       <div class="product-info">
@@ -616,11 +269,11 @@
 
     <div class="product-card">
       <div class="product-img-wrap">
-        <!-- <img src="https://YOUR-USERNAME.github.io/YOUR-REPO/images/item5.jpg" alt="Baby Booties Set" /> -->
+        <!-- <img src="images/booties.jpg" alt="Baby Booties Set" /> -->
         <div class="product-img-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><ellipse cx="18" cy="30" rx="9" ry="7" stroke="#C9A882" stroke-width="1.5"/><path d="M9 30 Q9 22 18 20 Q24 18 27 22" stroke="#C9A882" stroke-width="1.5" fill="none"/><ellipse cx="31" cy="30" rx="9" ry="7" stroke="#C9A882" stroke-width="1.5"/><path d="M22 30 Q22 22 31 20 Q37 18 40 22" stroke="#C9A882" stroke-width="1.5" fill="none"/></svg>
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><ellipse cx="18" cy="33" rx="9" ry="7" stroke="#2F5080" stroke-width="1.5"/><path d="M9 33 Q9 24 18 22 Q24 20 28 24" stroke="#2F5080" stroke-width="1.5" fill="none"/><ellipse cx="34" cy="33" rx="9" ry="7" stroke="#2F5080" stroke-width="1.5"/><path d="M25 33 Q25 24 34 22 Q40 20 44 24" stroke="#2F5080" stroke-width="1.5" fill="none"/></svg>
         </div>
-        <span class="product-badge">Custom</span>
+        <span class="product-badge orange">Custom</span>
       </div>
       <div class="product-info">
         <h3 class="product-name">Baby Booties Set</h3>
@@ -634,9 +287,9 @@
 
     <div class="product-card">
       <div class="product-img-wrap">
-        <!-- <img src="https://YOUR-USERNAME.github.io/YOUR-REPO/images/item6.jpg" alt="Crochet Plant Pot Holder" /> -->
+        <!-- <img src="images/planter.jpg" alt="Plant Pot Holder" /> -->
         <div class="product-img-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M16 38 L14 22h20L32 38H16z" stroke="#C9A882" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 14 Q24 10 28 14" stroke="#9DB09A" stroke-width="1.5" fill="none"/><line x1="24" y1="14" x2="24" y2="22" stroke="#9DB09A" stroke-width="1.2"/><path d="M14 28h20M15 33h18" stroke="#C9A882" stroke-width="1" stroke-dasharray="3 3"/></svg>
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M18 42 L16 24h20L34 42H18z" stroke="#2F5080" stroke-width="1.5" stroke-linejoin="round"/><path d="M22 15 Q26 11 30 15" stroke="#5A9A7A" stroke-width="1.5" fill="none"/><line x1="26" y1="15" x2="26" y2="24" stroke="#5A9A7A" stroke-width="1.2"/><path d="M16 31h20M17 37h18" stroke="#2F5080" stroke-width="1" stroke-dasharray="3 3"/></svg>
         </div>
       </div>
       <div class="product-info">
@@ -657,43 +310,20 @@
   <div class="about-text">
     <span class="eyebrow">The maker</span>
     <h2>Made with <em>love</em>,<br>one stitch at a time</h2>
-    <p>
-      Hi! I'm a passionate crocheter based in Hyderabad, turning yarn into heirlooms.
-      Every piece is made to order — so you always get something truly unique.
-      Custom colours, sizes, and designs are welcome. Just reach out!
-    </p>
+    <p>Hi! I'm Subbu, a passionate crocheter based in Hyderabad. Every piece in this shop is made to order — so you always receive something truly unique. Custom colours, sizes, and designs are always welcome. Just reach out!</p>
   </div>
-  <div class="about-pattern">
-    <!-- Optionally add your photo here:
-    <img src="images/maker.jpg" style="width:100%;height:100%;object-fit:cover;" alt="The maker" />
-    -->
-    <div class="about-icon">🧶</div>
+  <div class="about-visual">
+    <img src="logo.png" alt="SubbuKnits" class="about-logo" />
   </div>
 </section>
 
 <!-- PERKS -->
 <div class="perks">
   <div class="perks-grid">
-    <div class="perk">
-      <span class="perk-icon">✂️</span>
-      <h3>Made to Order</h3>
-      <p>Every item is crafted fresh — no mass production, just care.</p>
-    </div>
-    <div class="perk">
-      <span class="perk-icon">🎨</span>
-      <h3>Custom Colours</h3>
-      <p>Pick any colour from my yarn palette or send me a swatch.</p>
-    </div>
-    <div class="perk">
-      <span class="perk-icon">📦</span>
-      <h3>Ships Pan India</h3>
-      <p>Carefully packed and shipped across India within 7–10 days.</p>
-    </div>
-    <div class="perk">
-      <span class="perk-icon">💬</span>
-      <h3>Custom Orders</h3>
-      <p>Have something special in mind? Let's bring it to life!</p>
-    </div>
+    <div class="perk"><span class="perk-icon">✂️</span><h3>Made to Order</h3><p>Every item is crafted fresh — no mass production, just care.</p></div>
+    <div class="perk"><span class="perk-icon">🎨</span><h3>Custom Colours</h3><p>Pick any colour from my yarn palette or send me a swatch.</p></div>
+    <div class="perk"><span class="perk-icon">📦</span><h3>Ships Pan India</h3><p>Carefully packed and shipped across India within 7–10 days.</p></div>
+    <div class="perk"><span class="perk-icon">💬</span><h3>Custom Orders</h3><p>Have something special in mind? Let's bring it to life!</p></div>
   </div>
 </div>
 
@@ -705,7 +335,6 @@
       <h2>Place an <em>order</em></h2>
       <div class="divider"></div>
     </div>
-
     <form id="contact-form" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group">
@@ -725,34 +354,41 @@
         <label for="item">Item of interest</label>
         <select id="item" name="item">
           <option value="">— Select an item —</option>
-          <option value="Chunky Throw Blanket">Chunky Throw Blanket</option>
-          <option value="Amigurumi Bear">Amigurumi Bear</option>
-          <option value="Market Tote Bag">Market Tote Bag</option>
-          <option value="Boho Wall Hanging">Boho Wall Hanging</option>
-          <option value="Baby Booties Set">Baby Booties Set</option>
-          <option value="Plant Pot Holder">Plant Pot Holder</option>
-          <option value="Custom / Other">Custom / Other</option>
+          <option>Chunky Throw Blanket</option>
+          <option>Amigurumi Bear</option>
+          <option>Market Tote Bag</option>
+          <option>Boho Wall Hanging</option>
+          <option>Baby Booties Set</option>
+          <option>Plant Pot Holder</option>
+          <option>Custom / Other</option>
         </select>
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell me about colour preferences, size, quantity, or any custom request…"></textarea>
+        <textarea id="message" name="message" placeholder="Colour preferences, size, quantity, or any custom request…"></textarea>
       </div>
       <button type="submit" class="btn-submit">Send Enquiry</button>
     </form>
-
     <div class="form-success" id="success-msg">
       <h3>Thank you! 🧶</h3>
-      <p>Your message is on its way. I'll reply within 24 hours.</p>
+      <p>Your message is on its way. I'll get back to you within 24 hours.</p>
     </div>
-
-    <p class="contact-note">You can also reach me at <a href="mailto:you@example.com" style="color:var(--terra)">you@example.com</a> or on Instagram <a href="https://instagram.com/yourhandle" style="color:var(--terra)">@yourhandle</a></p>
+    <p class="contact-note">
+      Or reach me at <a href="mailto:you@example.com">you@example.com</a>
+      &nbsp;·&nbsp; Instagram <a href="https://instagram.com/subbuknits">@subbuknits</a>
+    </p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">SubbuKnits</span>
+  <div class="footer-brand">
+    <img src="logo.png" alt="SubbuKnits logo" />
+    <div class="footer-brand-text">
+      <strong>SubbuKnits</strong>
+      <span>Her Legacy in Stitches</span>
+    </div>
+  </div>
   <span>© 2025 · All pieces handcrafted in Hyderabad, India</span>
   <span><a href="mailto:you@example.com">you@example.com</a></span>
 </footer>
@@ -761,39 +397,32 @@
   function prefill(itemName) {
     setTimeout(() => {
       const sel = document.getElementById('item');
-      if (sel) sel.value = itemName;
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === itemName) { sel.selectedIndex = i; break; }
+      }
     }, 300);
   }
-
   function handleSubmit(e) {
     e.preventDefault();
-    /* ── HOW TO WIRE UP THE FORM ──────────────────────────────────────────
-       Option A — Formspree (free, easiest for GitHub Pages):
-         1. Sign up at https://formspree.io
-         2. Create a form and copy your endpoint, e.g. https://formspree.io/f/xyzabcde
-         3. Change: <form id="contact-form" onsubmit="handleSubmit(event)">
-            to:      <form id="contact-form" action="https://formspree.io/f/xyzabcde" method="POST">
-         4. Delete this entire handleSubmit function.
+    /* ── FORM OPTIONS ──────────────────────────────────────────────────────
+       Option A (recommended for GitHub Pages) — Formspree.io (free):
+         1. Sign up at https://formspree.io and create a form
+         2. Change the <form> opening tag to:
+              <form id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+         3. Delete this entire <script> block.
 
-       Option B — mailto fallback (no backend needed):
-         Replace handleSubmit body with the lines marked OPTION B below.
+       Option B — mailto fallback (active below, zero setup needed):
     ─────────────────────────────────────────────────────────────────────── */
-
-    /* OPTION B — mailto fallback */
     const name    = document.getElementById('name').value;
     const email   = document.getElementById('email').value;
     const item    = document.getElementById('item').value;
     const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Crochet Enquiry: ' + (item || 'General'));
-    const body    = encodeURIComponent(
-      'Name: ' + name + '\nEmail: ' + email + '\nItem: ' + item + '\n\n' + message
-    );
+    const subject = encodeURIComponent('SubbuKnits Enquiry: ' + (item || 'General'));
+    const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nItem: ' + item + '\n\n' + message);
     window.location.href = 'mailto:you@example.com?subject=' + subject + '&body=' + body;
-
     document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
+    document.getElementById('success-msg').style.display  = 'block';
   }
 </script>
-
 </body>
 </html>
